@@ -49,7 +49,7 @@
   "homepage": "https://github.com/Nithinfgs/cleanbreak#readme",
   "devDependencies": {
     "@eslint/js": "^9.0.0",
-    "@types/node": "^22.0.0",
+    "@types/node": "^26.6.3",
     "eslint": "^9.0.0",
     "globals": "^15.0.0",
     "prettier": "^3.3.0",
