@@ -1,0 +1,58 @@
+{
+  "name": "cleanbreak",
+  "version": "0.1.0",
+  "description": "Find git branches that merge cleanly but break anyway: removed symbols, changed signatures and moved files that another branch still uses.",
+  "type": "module",
+  "bin": {
+    "cleanbreak": "bin/cleanbreak.js"
+  },
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "tsc -p jsconfig.json",
+    "demo": "node scripts/demo.js",
+    "check": "npm run lint && npm run typecheck && npm run format:check && npm test"
+  },
+  "keywords": [
+    "git",
+    "merge",
+    "merge-conflicts",
+    "semantic-conflicts",
+    "worktree",
+    "coding-agents",
+    "cli",
+    "developer-tools",
+    "ci"
+  ],
+  "author": "Nithinfgs",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nithinfgs/cleanbreak.git"
+  },
+  "bugs": "https://github.com/Nithinfgs/cleanbreak/issues",
+  "homepage": "https://github.com/Nithinfgs/cleanbreak#readme",
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "@types/node": "^22.0.0",
+    "eslint": "^9.0.0",
+    "globals": "^15.0.0",
+    "prettier": "^3.3.0",
+    "typescript": "^5.6.0"
+  }
+}
