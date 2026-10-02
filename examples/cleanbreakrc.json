@@ -1,0 +1,5 @@
+{
+  "base": "main",
+  "ignore": ["**/*.test.js", "**/__snapshots__/**", "vendor/**", "docs/**"],
+  "ignoreSymbols": ["main", "setup"]
+}

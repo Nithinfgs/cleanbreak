@@ -1,0 +1,24 @@
+# Copy to .github/workflows/cleanbreak.yml
+# Fails a pull request when it merges cleanly with the base branch but would break it anyway.
+name: cleanbreak
+on: pull_request
+
+jobs:
+  cleanbreak:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha }}
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: git fetch origin ${{ github.base_ref }}
+      - run: npm ci
+      - name: Compare this PR with the current base branch
+        run: >
+          npx --yes github:Nithinfgs/cleanbreak
+          origin/${{ github.base_ref }} ${{ github.event.pull_request.head.sha }}
+          --base origin/${{ github.base_ref }}
+          --verify "npm test"
+          --fail-on silent
