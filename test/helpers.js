@@ -9,6 +9,7 @@ export { commit, edit, git, move, write };
 export function makeRepo(setup) {
   const dir = join(mkdtempSync(join(tmpdir(), 'cleanbreak-test-')), 'repo');
   git(tmpdir(), 'init', '-q', '-b', 'main', dir);
+  git(dir, 'config', 'core.autocrlf', 'false');
   setup(dir);
   commit(dir, 'initial');
   return dir;

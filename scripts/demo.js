@@ -7,5 +7,5 @@ import { main } from '../src/cli.js';
 import { buildDemo } from './demo-repo.js';
 
 const dir = buildDemo(join(mkdtempSync(join(tmpdir(), 'cleanbreak-demo-')), 'shop'));
-console.log(`demo repo: ${dir}\n`);
+console.error(`demo repo: ${dir}\n`);
 process.exitCode = main(['-C', dir, '--verify', 'node main.js', ...process.argv.slice(2)]);

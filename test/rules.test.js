@@ -153,11 +153,12 @@ test('verify: confirms a real failure and stays quiet when the command passes', 
   const dir = makeRepo((d) => {
     write(d, 'lib.js', 'export function greet(n) {\n  return n;\n}\n');
     write(d, 'app.js', 'export const a = 1;\n');
+    write(d, 'package.json', '{ "type": "module" }\n');
     write(d, 'check.js', "import './app.js';\n");
   });
   branch(dir, 'x', (d) => write(d, 'lib.js', 'export const LIMIT = 5;\n'));
   branch(dir, 'y', (d) => write(d, 'app.js', "import { greet } from './lib.js';\nexport const a = greet('bob');\n"));
   assert.equal(run({ cwd: dir, includeBase: false, verify: 'node check.js' }).pairs[0].verify.status, 'failed');
-  assert.equal(run({ cwd: dir, includeBase: false, verify: 'true' }).pairs[0].verify.status, 'passed');
-  assert.equal(run({ cwd: dir, includeBase: false, verify: 'false' }).pairs[0].verify.status, 'inconclusive');
+  assert.equal(run({ cwd: dir, includeBase: false, verify: 'node -e "process.exit(0)"' }).pairs[0].verify.status, 'passed');
+  assert.equal(run({ cwd: dir, includeBase: false, verify: 'node -e "process.exit(1)"' }).pairs[0].verify.status, 'inconclusive');
 });

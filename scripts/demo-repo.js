@@ -40,6 +40,7 @@ export function move(dir, from, to) {
 export function buildDemo(dir) {
   mkdirSync(dir, { recursive: true });
   git(dir, 'init', '-q', '-b', 'main');
+  git(dir, 'config', 'core.autocrlf', 'false');
   write(dir, 'package.json', '{ "name": "shop", "type": "module" }\n');
   write(
     dir,
