@@ -48,7 +48,7 @@
   "bugs": "https://github.com/Nithinfgs/cleanbreak/issues",
   "homepage": "https://github.com/Nithinfgs/cleanbreak#readme",
   "devDependencies": {
-    "@eslint/js": "^9.0.0",
+    "@eslint/js": "^10.0.1",
     "@types/node": "^22.0.0",
     "eslint": "^9.0.0",
     "globals": "^15.0.0",
