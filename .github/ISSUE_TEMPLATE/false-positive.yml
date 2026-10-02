@@ -1,0 +1,15 @@
+name: False positive
+description: cleanbreak flagged something that is not actually broken
+labels: [false-positive]
+body:
+  - type: textarea
+    id: finding
+    attributes: { label: The finding (paste the output), render: text }
+    validations: { required: true }
+  - type: textarea
+    id: why
+    attributes: { label: Why is it fine?, description: Minimal snippets of both branches help most. }
+    validations: { required: true }
+  - type: input
+    id: version
+    attributes: { label: cleanbreak version and OS }

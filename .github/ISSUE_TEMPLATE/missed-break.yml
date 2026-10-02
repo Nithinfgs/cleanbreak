@@ -1,0 +1,11 @@
+name: Missed break
+description: Two branches merged cleanly, broke, and cleanbreak said nothing
+labels: [false-negative]
+body:
+  - type: textarea
+    id: what
+    attributes: { label: What broke after merging?, description: Language, what each branch changed, and the error you saw. }
+    validations: { required: true }
+  - type: textarea
+    id: repro
+    attributes: { label: Smallest repro, description: A few lines per branch is enough. }

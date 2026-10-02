@@ -1,0 +1,8 @@
+name: Feature or language request
+description: Support another language or a new kind of silent break
+labels: [enhancement]
+body:
+  - type: textarea
+    id: idea
+    attributes: { label: What should it catch or support? }
+    validations: { required: true }
