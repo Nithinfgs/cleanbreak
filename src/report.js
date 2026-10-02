@@ -43,6 +43,11 @@ export function render(result, opts = {}) {
   );
   out.push('');
 
+  if (result.refs.length < 2) {
+    out.push(`  nothing to compare: no branch or worktree is ahead of ${result.base}. Pass refs explicitly: cleanbreak <refA> <refB>`);
+    return out.join('\n');
+  }
+
   const flagged = result.pairs.filter((p) => p.findings.length || !p.textual.clean);
   if (!flagged.length) {
     out.push(`  ${c.green('✔')} no textual or semantic conflicts found`);
